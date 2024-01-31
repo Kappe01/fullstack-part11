@@ -9,10 +9,19 @@ test("renders only title", () => {
     title: "test",
     author: "test_author",
     url: "https://www.testurl.com",
-    likes: 0,
+    likes: 13,
+    user: {
+      name: "test",
+      username: "test",
+    },
   };
 
-  const { container } = render(<Blog blog={blog} />);
+  const test_user = {
+    username: "test2",
+    name: "test2",
+  };
+
+  const { container } = render(<Blog blog={blog} user={test_user} />);
 
   const div_hidden = container.querySelector(".blogHidden");
   const div_shown = container.querySelector(".blogShown");
@@ -27,9 +36,18 @@ test("clicking view renders url and likes", async () => {
     author: "test_author",
     url: "https://www.testurl.com",
     likes: 13,
+    user: {
+      name: "test",
+      username: "test",
+    },
   };
 
-  const { container } = render(<Blog blog={blog} />);
+  const test_user = {
+    username: "test2",
+    name: "test2",
+  };
+
+  const { container } = render(<Blog blog={blog} user={test_user} />);
 
   const div_hidden = container.querySelector(".blogHidden");
   const div_shown = container.querySelector(".blogShown");
@@ -49,12 +67,21 @@ test("clicking like twice calls event handler twice", async () => {
     title: "test",
     author: "test_author",
     url: "https://www.testurl.com",
-    likes: 5,
+    likes: 13,
+    user: {
+      name: "test",
+      username: "test",
+    },
+  };
+
+  const test_user = {
+    username: "test2",
+    name: "test2",
   };
 
   const mockHandler = jest.fn();
 
-  render(<Blog blog={blog} addLike={mockHandler} />);
+  render(<Blog blog={blog} user={test_user} addLike={mockHandler} />);
 
   const user = userEvent.setup();
   const button = screen.getByText("like");
