@@ -42,7 +42,7 @@ jobs:
             - name: Test
               run: npm run test
             - name: start backend
-              run: cd .. && cd backend && npm run dev
+              run: cd .. && cd backend && npm run start:test
             - name: e2e tests
               uses: cypress-io/github-action@v5
               with:
