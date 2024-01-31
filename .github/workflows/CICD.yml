@@ -21,6 +21,8 @@ jobs:
                 node-version: '20'
             - name: Install dependencies
               run: npm install
+            - name: start test
+              run: npm run start:test
             - name: Test
               run: npm run test
     CI_frontend:
