@@ -8,6 +8,10 @@ on:
         branches: [main]
         types: [opened, synchronize]
 
+env:
+    MONGO_URL: ${{ secrets.MONGO_URL }}
+    TEST_MONGO_URL: ${{ secrets.TEST_MONGO_URL }}
+
 jobs:
     CI_backend:
         runs-on: ubuntu-latest
