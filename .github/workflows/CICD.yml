@@ -41,14 +41,12 @@ jobs:
               run: npm run build
             - name: Test
               run: npm run test
+            - name: start backend
+              run: cd .. && cd backend && npm run dev
             - name: e2e tests
               uses: cypress-io/github-action@v5
               with:
                 command: npm run test:e2e
-                start: |
-                    cd ..
-                    cd backend
-                    npm run dev
                 wait-on: http://localhost:5173
 
     tag_release:
